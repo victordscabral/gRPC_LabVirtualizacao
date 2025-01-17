@@ -1,5 +1,8 @@
-# gRPC_LabVirtualizacao
-Atividade extra-classe: Lab de gRPC com virtualização.
+# PSPD - gRPC_LabVirtualizacao
+- FGA0244 
+- PROGRAMAÇÃO PARA SISTEMAS PARALELOS E DISTRIBUÍDOS 
+- T01 (2024.2 - 24T23) 
+- Atividade extra-classe: Lab de gRPC com virtualização.
 
 ## 1. Alunos
 - Artur Vinícius Dias Nunes: 190142421
