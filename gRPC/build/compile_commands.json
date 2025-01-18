@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build -isystem /home/jl/gRPC/.local/include  -o CMakeFiles/protolib.dir/proto/hello.pb.cc.o -c /home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/proto/hello.pb.cc",
+  "file": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/proto/hello.pb.cc"
+},
+{
+  "directory": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build -isystem /home/jl/gRPC/.local/include  -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -c /home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/proto/hello.grpc.pb.cc",
+  "file": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/proto/hello.grpc.pb.cc"
+},
+{
+  "directory": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build -isystem /home/jl/gRPC/.local/include  -o CMakeFiles/server.dir/src/server.cc.o -c /home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/src/server.cc",
+  "file": "/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/src/server.cc"
+}
+]
