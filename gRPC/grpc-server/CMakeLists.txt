@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(insert C CXX)
 
-include(../cmake/common.cmake)
+include(../cmakeutil/common.cmake)
 
 # Find absl package
 find_package(absl CONFIG REQUIRED)
