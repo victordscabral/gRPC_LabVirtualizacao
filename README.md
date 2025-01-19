@@ -150,6 +150,39 @@ Instale e configure o OpenSSH:
 ```bash
 sudo apt install openssh-server
 ```
+
+## 5.6. Executando o Frontend
+
+### 5.6.1. Instalação das Dependências
+
+1. Navegue até o diretório do frontend:
+    ```bash
+    cd frontend
+    ```
+
+2. Instale as dependências do projeto:
+    ```bash
+    npm install
+    ```
+
+### 5.6.2. Executando o Frontend
+
+1. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm start
+    ```
+
+2. Abra o navegador e acesse:
+    ```
+    http://localhost:3000
+    ```
+
+### 5.6.3. Utilização
+
+1. Digite a palavra que deseja consultar no campo de entrada.
+2. Clique no botão "Consultar Palavra".
+3. A tabela será atualizada com a palavra consultada e seu número de ocorrências.
+
 ## 6. Estrutura do Projeto
 - **server.c**: Código do servidor gRPC que mantém o dicionário de palavras.
 - **client.c**: Código do cliente gRPC.
