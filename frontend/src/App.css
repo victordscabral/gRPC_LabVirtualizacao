@@ -3,19 +3,39 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #f0f0f0;
 }
 
-.container {
+.app-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 2000px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.info-container {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.main-container {
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Centraliza verticalmente */
-  height: 100vh;
+  justify-content: center;
+  padding: 20px;
 }
 
 h1 {
@@ -31,7 +51,13 @@ input, button {
 table {
   margin-top: 20px;
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
 th {
@@ -40,11 +66,9 @@ th {
 }
 
 th:nth-child(1), td:nth-child(1) {
-  width: 500px; /* Palavra */
-  height: 40px;
+  width: 200px; /* Largura fixa para a coluna "Palavra" */
 }
 
 th:nth-child(2), td:nth-child(2) {
-  width: 500px; /* Número de Ocorrências */
-  height: 40px;
+  width: 150px; /* Largura fixa para a coluna "Número de Ocorrências" */
 }
