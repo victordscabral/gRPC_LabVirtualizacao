@@ -52,10 +52,87 @@ Clone o repositório:
 git clone git@github.com:joseluis-rt/gRPC_LabVirtualizacao.git
 ```
 ### 5.2. Preparando o Ambiente para o gRPC
+Clone o repositório gRPC e Faça a intalação localmente conforme no site oficial e linguagem: 
+    - Servidor [C++](https://grpc.io/docs/languages/cpp/quickstart/)
+    - Cliente  [Python](https://grpc.io/docs/languages/python/quickstart/)
+
+Lembre-se de executar o servidor antes do cliente.
+
+#### 5.2.1. Detalhes de intalação em C++ para o servidor
+Tenha certeza de exportar uma váriavel com o caminho para pasta local de instalação do gRPC
+```bash
+export MY_INSTALL_DIR=path/to/.local
+```
+
+Instale o cmake
+```bash
+sudo apt install -y cmake
+```
+
 Instale as dependências:
 ```bash
 sudo apt install build-essential autoconf libtool pkg-config protobuf-compiler libprotobuf-dev libprotoc-dev
 ```
+
+Com o repositório gRPC clonado faça a instalação do gRPC e Procol Buffers:
+```bash
+cd grpc
+mkdir -p cmake/build
+pushd cmake/build
+cmake -DgRPC_INSTALL=ON \
+      -DgRPC_BUILD_TESTS=OFF \
+      -DCMAKE_CXX_STANDARD=17 \
+      -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
+      ../..
+make -j 4
+make install
+popd
+```
+
+#### 5.2.2. Detalhes de intalação em Python para o cliente
+Dentro do diretório gRPC/grpc-client crie uma ambiente virtual python e o ative:
+```bash
+python -m venv
+source venv/bin/activate
+```
+
+Atualize o pip:
+```bash
+python -m pip install --upgrade pip
+```
+
+Instale o gRPC e o gRPC tools:
+```bash
+python -m pip install grpcio
+python -m pip install grpcio-tools
+```
+
+#### 5.2.3. Executando Servidor C++
+No diretório gRPC/grpc-server prepare o ambiente de build com os seguintes comandos:
+```bash
+mkdir -p cmake/build
+cd cmake/build
+cmake -DCMAKE_PREFIX_PATH=$MY_INSTALL_DIR ../..
+```
+obs: Veja que será usada a variável $MY_INSTALL_DIR novamente, tenha certeza de exporta ela como mostrado anteriormente no mesmo terminal antes de executar os comandos.
+
+Ainda no diretório da build, compile usando make
+```bash
+make
+```
+
+Inicie o servidor com o seguinte comando:
+```bash
+./insert_server
+```
+
+#### 5.2.3. Executando Cliente Python
+No diretório gRPC/grpc-client e com o ambiente virtual ativo:
+```bash
+python insert_client.py
+```
+
+
 ### 5.3. Configuração da Virtualização
 1. Instale o QEMU, libvirt e virt-manager:
 ```bash
