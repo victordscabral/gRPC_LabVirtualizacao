@@ -1,0 +1,28 @@
+
+syntax = "proto3";
+
+package insertword;
+
+// Definição do serviço de inserção
+service InsertWord {
+
+    // Retorna a lista de palavras e sua ocorrência
+    rpc ListWords (WordRequest) returns (stream WordResponse) {}
+
+    // Insere uma palavra e conta sua ocorrência
+    rpc InsertCount (WordRequest) returns (Empty) {}
+}
+
+message WordRequest {
+    optional string  word = 1;
+}
+
+message WordResponse {
+    optional string  word = 1;
+    optional int32   sum  = 2;
+}
+
+// Menssagem Nula
+message Empty {
+
+}
