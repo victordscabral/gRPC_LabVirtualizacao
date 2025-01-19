@@ -65,7 +65,7 @@ Agora vamos criar as VMs, tanto usando a interface gráfica do **virt-manager** 
 
 4. Configure a VM:
    - **Nome**: VM01 ou VM02.
-   - **Memória**: 2 GB para VM01 e 1 GB para VM02.
+   - **Memória**: 2 GB para VM01 e 2 GB para VM02.
    - **CPU**: 2 vCPUs para VM01 e 1 vCPU para VM02.
    - **Espaço de disco**: 18 GB para VM01 e 16 GB para VM02.
 
@@ -79,14 +79,36 @@ Se preferir usar a linha de comando, siga os passos abaixo.
 
 ```bash
 # Criar a VM01 com 2 GB de RAM, 2 vCPUs, e 18 GB de disco
-sudo virt-install   --name VM01   --vcpus 2   --memory 2048   --disk path=/var/lib/libvirt/images/VM01.img,size=18   --cdrom /home/jl/isos/ubuntu-20.04.6-live-server-amd64.iso   --os-type linux   --os-variant ubuntu20.04   --network network=default   --graphics none   --console pty,target_type=serial   --noautoconsole
+sudo virt-install \
+  --name VM01 \
+  --vcpus 2 \
+  --memory 2048 \
+  --disk path=/var/lib/libvirt/images/VM01.img,size=18 \
+  --cdrom /home/jl/isos/ubuntu-20.04.6-live-server-amd64.iso \
+  --os-type linux \
+  --os-variant ubuntu20.04 \
+  --network network=default \
+  --graphics none \
+  --console pty,target_type=serial \
+  --noautoconsole
 ```
 
 #### Criar e Instalar VM02:
 
 ```bash
-# Criar a VM02 com 1 GB de RAM, 1 vCPU, e 16 GB de disco
-sudo virt-install   --name VM02   --vcpus 1   --memory 1024   --disk path=/var/lib/libvirt/images/VM02.img,size=16   --cdrom /home/jl/isos/ubuntu-20.04.6-live-server-amd64.iso   --os-type linux   --os-variant ubuntu20.04   --network network=default   --graphics none   --console pty,target_type=serial   --noautoconsole
+# Criar a VM02 com 2 GB de RAM, 1 vCPU, e 16 GB de disco
+sudo virt-install \
+  --name VM02 \
+  --vcpus 1 \
+  --memory 2048 \
+  --disk path=/var/lib/libvirt/images/VM02.img,size=16 \
+  --cdrom /home/jl/isos/ubuntu-20.04.6-live-server-amd64.iso \
+  --os-type linux \
+  --os-variant ubuntu20.04 \
+  --network network=default \
+  --graphics none \
+  --console pty,target_type=serial \
+  --noautoconsole
 ```
 
 ## 6. Configuração de Rede Virtual (LAN #2)
