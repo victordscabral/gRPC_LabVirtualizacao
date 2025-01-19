@@ -1,4 +1,0 @@
-/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/CMakeFiles/protolib.dir
-/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/CMakeFiles/server.dir
-/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/CMakeFiles/edit_cache.dir
-/home/jl/Desktop/pspd/gRPC_LabVirtualizacao/gRPC/build/CMakeFiles/rebuild_cache.dir
