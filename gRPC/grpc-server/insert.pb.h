@@ -60,7 +60,7 @@ extern WordRequestDefaultTypeInternal _WordRequest_default_instance_;
 class WordResponse;
 struct WordResponseDefaultTypeInternal;
 extern WordResponseDefaultTypeInternal _WordResponse_default_instance_;
-}
+}  // namespace insertword
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
@@ -74,7 +74,7 @@ namespace insertword {
 // -------------------------------------------------------------------
 
 class WordResponse final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:WordResponse) */ {
+/* @@protoc_insertion_point(class_definition:insertword.WordResponse) */ {
  public:
   inline WordResponse() : WordResponse(nullptr) {}
   ~WordResponse() override;
@@ -180,7 +180,7 @@ class WordResponse final : public ::google::protobuf::Message
   void InternalSwap(WordResponse* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "WordResponse"; }
+  static ::absl::string_view FullMessageName() { return "insertword.WordResponse"; }
 
  protected:
   explicit WordResponse(::google::protobuf::Arena* arena);
@@ -228,13 +228,13 @@ class WordResponse final : public ::google::protobuf::Message
   void _internal_set_sum(::int32_t value);
 
   public:
-  // @@protoc_insertion_point(class_scope:WordResponse)
+  // @@protoc_insertion_point(class_scope:insertword.WordResponse)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
-      25, 2>
+      36, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -266,7 +266,7 @@ class WordResponse final : public ::google::protobuf::Message
 // -------------------------------------------------------------------
 
 class WordRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:WordRequest) */ {
+/* @@protoc_insertion_point(class_definition:insertword.WordRequest) */ {
  public:
   inline WordRequest() : WordRequest(nullptr) {}
   ~WordRequest() override;
@@ -372,7 +372,7 @@ class WordRequest final : public ::google::protobuf::Message
   void InternalSwap(WordRequest* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "WordRequest"; }
+  static ::absl::string_view FullMessageName() { return "insertword.WordRequest"; }
 
  protected:
   explicit WordRequest(::google::protobuf::Arena* arena);
@@ -408,13 +408,13 @@ class WordRequest final : public ::google::protobuf::Message
   std::string* _internal_mutable_word();
 
   public:
-  // @@protoc_insertion_point(class_scope:WordRequest)
+  // @@protoc_insertion_point(class_scope:insertword.WordRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
-      24, 2>
+      35, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -445,7 +445,7 @@ class WordRequest final : public ::google::protobuf::Message
 // -------------------------------------------------------------------
 
 class Empty final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:Empty) */ {
+/* @@protoc_insertion_point(class_definition:insertword.Empty) */ {
  public:
   inline Empty() : Empty(nullptr) {}
   template <typename = void>
@@ -538,7 +538,7 @@ class Empty final : public ::google::protobuf::internal::ZeroFieldsBase
   }
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "Empty"; }
+  static ::absl::string_view FullMessageName() { return "insertword.Empty"; }
 
  protected:
   explicit Empty(::google::protobuf::Arena* arena);
@@ -554,7 +554,7 @@ class Empty final : public ::google::protobuf::internal::ZeroFieldsBase
   // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:Empty)
+  // @@protoc_insertion_point(class_scope:insertword.Empty)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -613,7 +613,7 @@ inline void WordRequest::clear_word() {
 }
 inline const std::string& WordRequest::word() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:WordRequest.word)
+  // @@protoc_insertion_point(field_get:insertword.WordRequest.word)
   return _internal_word();
 }
 template <typename Arg_, typename... Args_>
@@ -622,11 +622,11 @@ inline PROTOBUF_ALWAYS_INLINE void WordRequest::set_word(Arg_&& arg,
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.word_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:WordRequest.word)
+  // @@protoc_insertion_point(field_set:insertword.WordRequest.word)
 }
 inline std::string* WordRequest::mutable_word() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   std::string* _s = _internal_mutable_word();
-  // @@protoc_insertion_point(field_mutable:WordRequest.word)
+  // @@protoc_insertion_point(field_mutable:insertword.WordRequest.word)
   return _s;
 }
 inline const std::string& WordRequest::_internal_word() const {
@@ -645,7 +645,7 @@ inline std::string* WordRequest::_internal_mutable_word() {
 }
 inline std::string* WordRequest::release_word() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:WordRequest.word)
+  // @@protoc_insertion_point(field_release:insertword.WordRequest.word)
   if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
     return nullptr;
   }
@@ -669,7 +669,7 @@ inline void WordRequest::set_allocated_word(std::string* value) {
           _impl_.word_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:WordRequest.word)
+  // @@protoc_insertion_point(field_set_allocated:insertword.WordRequest.word)
 }
 
 // -------------------------------------------------------------------
@@ -688,7 +688,7 @@ inline void WordResponse::clear_word() {
 }
 inline const std::string& WordResponse::word() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:WordResponse.word)
+  // @@protoc_insertion_point(field_get:insertword.WordResponse.word)
   return _internal_word();
 }
 template <typename Arg_, typename... Args_>
@@ -697,11 +697,11 @@ inline PROTOBUF_ALWAYS_INLINE void WordResponse::set_word(Arg_&& arg,
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.word_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:WordResponse.word)
+  // @@protoc_insertion_point(field_set:insertword.WordResponse.word)
 }
 inline std::string* WordResponse::mutable_word() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   std::string* _s = _internal_mutable_word();
-  // @@protoc_insertion_point(field_mutable:WordResponse.word)
+  // @@protoc_insertion_point(field_mutable:insertword.WordResponse.word)
   return _s;
 }
 inline const std::string& WordResponse::_internal_word() const {
@@ -720,7 +720,7 @@ inline std::string* WordResponse::_internal_mutable_word() {
 }
 inline std::string* WordResponse::release_word() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:WordResponse.word)
+  // @@protoc_insertion_point(field_release:insertword.WordResponse.word)
   if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
     return nullptr;
   }
@@ -744,7 +744,7 @@ inline void WordResponse::set_allocated_word(std::string* value) {
           _impl_.word_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:WordResponse.word)
+  // @@protoc_insertion_point(field_set_allocated:insertword.WordResponse.word)
 }
 
 // optional int32 sum = 2;
@@ -758,13 +758,13 @@ inline void WordResponse::clear_sum() {
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline ::int32_t WordResponse::sum() const {
-  // @@protoc_insertion_point(field_get:WordResponse.sum)
+  // @@protoc_insertion_point(field_get:insertword.WordResponse.sum)
   return _internal_sum();
 }
 inline void WordResponse::set_sum(::int32_t value) {
   _internal_set_sum(value);
   _impl_._has_bits_[0] |= 0x00000002u;
-  // @@protoc_insertion_point(field_set:WordResponse.sum)
+  // @@protoc_insertion_point(field_set:insertword.WordResponse.sum)
 }
 inline ::int32_t WordResponse::_internal_sum() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -784,7 +784,8 @@ inline void WordResponse::_internal_set_sum(::int32_t value) {
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
-}
+}  // namespace insertword
+
 
 // @@protoc_insertion_point(global_scope)
 

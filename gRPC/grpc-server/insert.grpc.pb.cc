@@ -19,10 +19,11 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/impl/service_type.h>
 #include <grpcpp/support/sync_stream.h>
+namespace insertword {
 
 static const char* InsertWord_method_names[] = {
-  "/InsertWord/ListWords",
-  "/InsertWord/InsertCount",
+  "/insertword.InsertWord/ListWords",
+  "/insertword.InsertWord/InsertCount",
 };
 
 std::unique_ptr< InsertWord::Stub> InsertWord::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -36,39 +37,39 @@ InsertWord::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_InsertCount_(InsertWord_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::ClientReader< ::WordResponse>* InsertWord::Stub::ListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::WordResponse>::Create(channel_.get(), rpcmethod_ListWords_, context, request);
+::grpc::ClientReader< ::insertword::WordResponse>* InsertWord::Stub::ListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::insertword::WordResponse>::Create(channel_.get(), rpcmethod_ListWords_, context, request);
 }
 
-void InsertWord::Stub::async::ListWords(::grpc::ClientContext* context, const ::WordRequest* request, ::grpc::ClientReadReactor< ::WordResponse>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::WordResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_ListWords_, context, request, reactor);
+void InsertWord::Stub::async::ListWords(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::grpc::ClientReadReactor< ::insertword::WordResponse>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::insertword::WordResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_ListWords_, context, request, reactor);
 }
 
-::grpc::ClientAsyncReader< ::WordResponse>* InsertWord::Stub::AsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::WordResponse>::Create(channel_.get(), cq, rpcmethod_ListWords_, context, request, true, tag);
+::grpc::ClientAsyncReader< ::insertword::WordResponse>* InsertWord::Stub::AsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::insertword::WordResponse>::Create(channel_.get(), cq, rpcmethod_ListWords_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncReader< ::WordResponse>* InsertWord::Stub::PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::WordResponse>::Create(channel_.get(), cq, rpcmethod_ListWords_, context, request, false, nullptr);
+::grpc::ClientAsyncReader< ::insertword::WordResponse>* InsertWord::Stub::PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::insertword::WordResponse>::Create(channel_.get(), cq, rpcmethod_ListWords_, context, request, false, nullptr);
 }
 
-::grpc::Status InsertWord::Stub::InsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::WordRequest, ::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_InsertCount_, context, request, response);
+::grpc::Status InsertWord::Stub::InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::insertword::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::insertword::WordRequest, ::insertword::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_InsertCount_, context, request, response);
 }
 
-void InsertWord::Stub::async::InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::WordRequest, ::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_InsertCount_, context, request, response, std::move(f));
+void InsertWord::Stub::async::InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::insertword::WordRequest, ::insertword::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_InsertCount_, context, request, response, std::move(f));
 }
 
-void InsertWord::Stub::async::InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+void InsertWord::Stub::async::InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_InsertCount_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::Empty>* InsertWord::Stub::PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::Empty, ::WordRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_InsertCount_, context, request);
+::grpc::ClientAsyncResponseReader< ::insertword::Empty>* InsertWord::Stub::PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::insertword::Empty, ::insertword::WordRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_InsertCount_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::Empty>* InsertWord::Stub::AsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::insertword::Empty>* InsertWord::Stub::AsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncInsertCountRaw(context, request, cq);
   result->StartCall();
@@ -79,21 +80,21 @@ InsertWord::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       InsertWord_method_names[0],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< InsertWord::Service, ::WordRequest, ::WordResponse>(
+      new ::grpc::internal::ServerStreamingHandler< InsertWord::Service, ::insertword::WordRequest, ::insertword::WordResponse>(
           [](InsertWord::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::WordRequest* req,
-             ::grpc::ServerWriter<::WordResponse>* writer) {
+             const ::insertword::WordRequest* req,
+             ::grpc::ServerWriter<::insertword::WordResponse>* writer) {
                return service->ListWords(ctx, req, writer);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       InsertWord_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< InsertWord::Service, ::WordRequest, ::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< InsertWord::Service, ::insertword::WordRequest, ::insertword::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](InsertWord::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::WordRequest* req,
-             ::Empty* resp) {
+             const ::insertword::WordRequest* req,
+             ::insertword::Empty* resp) {
                return service->InsertCount(ctx, req, resp);
              }, this)));
 }
@@ -101,18 +102,20 @@ InsertWord::Service::Service() {
 InsertWord::Service::~Service() {
 }
 
-::grpc::Status InsertWord::Service::ListWords(::grpc::ServerContext* context, const ::WordRequest* request, ::grpc::ServerWriter< ::WordResponse>* writer) {
+::grpc::Status InsertWord::Service::ListWords(::grpc::ServerContext* context, const ::insertword::WordRequest* request, ::grpc::ServerWriter< ::insertword::WordResponse>* writer) {
   (void) context;
   (void) request;
   (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status InsertWord::Service::InsertCount(::grpc::ServerContext* context, const ::WordRequest* request, ::Empty* response) {
+::grpc::Status InsertWord::Service::InsertCount(::grpc::ServerContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+
+}  // namespace insertword
 

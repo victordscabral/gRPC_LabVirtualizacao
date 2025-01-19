@@ -25,77 +25,79 @@
 #include <grpcpp/support/stub_options.h>
 #include <grpcpp/support/sync_stream.h>
 
+namespace insertword {
+
 // Definição do serviço de inserção
 class InsertWord final {
  public:
   static constexpr char const* service_full_name() {
-    return "InsertWord";
+    return "insertword.InsertWord";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
     // Retorna a lista de palavras e sua ocorrência
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::WordResponse>> ListWords(::grpc::ClientContext* context, const ::WordRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::WordResponse>>(ListWordsRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::insertword::WordResponse>> ListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::insertword::WordResponse>>(ListWordsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::WordResponse>> AsyncListWords(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::WordResponse>>(AsyncListWordsRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>> AsyncListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>>(AsyncListWordsRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::WordResponse>> PrepareAsyncListWords(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::WordResponse>>(PrepareAsyncListWordsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>> PrepareAsyncListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>>(PrepareAsyncListWordsRaw(context, request, cq));
     }
     // Insere uma palavra e conta sua ocorrência
-    virtual ::grpc::Status InsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Empty>> AsyncInsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Empty>>(AsyncInsertCountRaw(context, request, cq));
+    virtual ::grpc::Status InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::insertword::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>> AsyncInsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>>(AsyncInsertCountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Empty>> PrepareAsyncInsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Empty>>(PrepareAsyncInsertCountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>> PrepareAsyncInsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>>(PrepareAsyncInsertCountRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
       // Retorna a lista de palavras e sua ocorrência
-      virtual void ListWords(::grpc::ClientContext* context, const ::WordRequest* request, ::grpc::ClientReadReactor< ::WordResponse>* reactor) = 0;
+      virtual void ListWords(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::grpc::ClientReadReactor< ::insertword::WordResponse>* reactor) = 0;
       // Insere uma palavra e conta sua ocorrência
-      virtual void InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderInterface< ::WordResponse>* ListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::WordResponse>* AsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::WordResponse>* PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Empty>* AsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Empty>* PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::insertword::WordResponse>* ListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>* AsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::insertword::WordResponse>* PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>* AsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::insertword::Empty>* PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReader< ::WordResponse>> ListWords(::grpc::ClientContext* context, const ::WordRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::WordResponse>>(ListWordsRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::insertword::WordResponse>> ListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::insertword::WordResponse>>(ListWordsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::WordResponse>> AsyncListWords(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::WordResponse>>(AsyncListWordsRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::insertword::WordResponse>> AsyncListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::insertword::WordResponse>>(AsyncListWordsRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::WordResponse>> PrepareAsyncListWords(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::WordResponse>>(PrepareAsyncListWordsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::insertword::WordResponse>> PrepareAsyncListWords(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::insertword::WordResponse>>(PrepareAsyncListWordsRaw(context, request, cq));
     }
-    ::grpc::Status InsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Empty>> AsyncInsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Empty>>(AsyncInsertCountRaw(context, request, cq));
+    ::grpc::Status InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::insertword::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::insertword::Empty>> AsyncInsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::insertword::Empty>>(AsyncInsertCountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Empty>> PrepareAsyncInsertCount(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Empty>>(PrepareAsyncInsertCountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::insertword::Empty>> PrepareAsyncInsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::insertword::Empty>>(PrepareAsyncInsertCountRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void ListWords(::grpc::ClientContext* context, const ::WordRequest* request, ::grpc::ClientReadReactor< ::WordResponse>* reactor) override;
-      void InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, std::function<void(::grpc::Status)>) override;
-      void InsertCount(::grpc::ClientContext* context, const ::WordRequest* request, ::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ListWords(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::grpc::ClientReadReactor< ::insertword::WordResponse>* reactor) override;
+      void InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, std::function<void(::grpc::Status)>) override;
+      void InsertCount(::grpc::ClientContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -107,11 +109,11 @@ class InsertWord final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReader< ::WordResponse>* ListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request) override;
-    ::grpc::ClientAsyncReader< ::WordResponse>* AsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::WordResponse>* PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::Empty>* AsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::Empty>* PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::WordRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::insertword::WordResponse>* ListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request) override;
+    ::grpc::ClientAsyncReader< ::insertword::WordResponse>* AsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::insertword::WordResponse>* PrepareAsyncListWordsRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::insertword::Empty>* AsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::insertword::Empty>* PrepareAsyncInsertCountRaw(::grpc::ClientContext* context, const ::insertword::WordRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ListWords_;
     const ::grpc::internal::RpcMethod rpcmethod_InsertCount_;
   };
@@ -122,9 +124,9 @@ class InsertWord final {
     Service();
     virtual ~Service();
     // Retorna a lista de palavras e sua ocorrência
-    virtual ::grpc::Status ListWords(::grpc::ServerContext* context, const ::WordRequest* request, ::grpc::ServerWriter< ::WordResponse>* writer);
+    virtual ::grpc::Status ListWords(::grpc::ServerContext* context, const ::insertword::WordRequest* request, ::grpc::ServerWriter< ::insertword::WordResponse>* writer);
     // Insere uma palavra e conta sua ocorrência
-    virtual ::grpc::Status InsertCount(::grpc::ServerContext* context, const ::WordRequest* request, ::Empty* response);
+    virtual ::grpc::Status InsertCount(::grpc::ServerContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ListWords : public BaseClass {
@@ -138,11 +140,11 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestListWords(::grpc::ServerContext* context, ::WordRequest* request, ::grpc::ServerAsyncWriter< ::WordResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestListWords(::grpc::ServerContext* context, ::insertword::WordRequest* request, ::grpc::ServerAsyncWriter< ::insertword::WordResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
@@ -158,11 +160,11 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestInsertCount(::grpc::ServerContext* context, ::WordRequest* request, ::grpc::ServerAsyncResponseWriter< ::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestInsertCount(::grpc::ServerContext* context, ::insertword::WordRequest* request, ::grpc::ServerAsyncResponseWriter< ::insertword::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -174,20 +176,20 @@ class InsertWord final {
    public:
     WithCallbackMethod_ListWords() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::WordRequest, ::WordResponse>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::insertword::WordRequest, ::insertword::WordResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::WordRequest* request) { return this->ListWords(context, request); }));
+                   ::grpc::CallbackServerContext* context, const ::insertword::WordRequest* request) { return this->ListWords(context, request); }));
     }
     ~WithCallbackMethod_ListWords() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::WordResponse>* ListWords(
-      ::grpc::CallbackServerContext* /*context*/, const ::WordRequest* /*request*/)  { return nullptr; }
+    virtual ::grpc::ServerWriteReactor< ::insertword::WordResponse>* ListWords(
+      ::grpc::CallbackServerContext* /*context*/, const ::insertword::WordRequest* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_InsertCount : public BaseClass {
@@ -196,25 +198,25 @@ class InsertWord final {
    public:
     WithCallbackMethod_InsertCount() {
       ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::WordRequest, ::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::insertword::WordRequest, ::insertword::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::WordRequest* request, ::Empty* response) { return this->InsertCount(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::insertword::WordRequest* request, ::insertword::Empty* response) { return this->InsertCount(context, request, response); }));}
     void SetMessageAllocatorFor_InsertCount(
-        ::grpc::MessageAllocator< ::WordRequest, ::Empty>* allocator) {
+        ::grpc::MessageAllocator< ::insertword::WordRequest, ::insertword::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::WordRequest, ::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::insertword::WordRequest, ::insertword::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_InsertCount() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* InsertCount(
-      ::grpc::CallbackServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_ListWords<WithCallbackMethod_InsertCount<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -230,7 +232,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -247,7 +249,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -264,7 +266,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -284,7 +286,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -307,7 +309,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -329,7 +331,7 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -344,10 +346,10 @@ class InsertWord final {
     WithStreamedUnaryMethod_InsertCount() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::WordRequest, ::Empty>(
+          ::insertword::WordRequest, ::insertword::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::WordRequest, ::Empty>* streamer) {
+                     ::insertword::WordRequest, ::insertword::Empty>* streamer) {
                        return this->StreamedInsertCount(context,
                          streamer);
                   }));
@@ -356,12 +358,12 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::Empty* /*response*/) override {
+    ::grpc::Status InsertCount(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::insertword::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedInsertCount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::WordRequest,::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedInsertCount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::insertword::WordRequest,::insertword::Empty>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_InsertCount<Service > StreamedUnaryService;
   template <class BaseClass>
@@ -372,10 +374,10 @@ class InsertWord final {
     WithSplitStreamingMethod_ListWords() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::SplitServerStreamingHandler<
-          ::WordRequest, ::WordResponse>(
+          ::insertword::WordRequest, ::insertword::WordResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerSplitStreamer<
-                     ::WordRequest, ::WordResponse>* streamer) {
+                     ::insertword::WordRequest, ::insertword::WordResponse>* streamer) {
                        return this->StreamedListWords(context,
                          streamer);
                   }));
@@ -384,16 +386,18 @@ class InsertWord final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::WordRequest* /*request*/, ::grpc::ServerWriter< ::WordResponse>* /*writer*/) override {
+    ::grpc::Status ListWords(::grpc::ServerContext* /*context*/, const ::insertword::WordRequest* /*request*/, ::grpc::ServerWriter< ::insertword::WordResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with split streamed
-    virtual ::grpc::Status StreamedListWords(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::WordRequest,::WordResponse>* server_split_streamer) = 0;
+    virtual ::grpc::Status StreamedListWords(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::insertword::WordRequest,::insertword::WordResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_ListWords<Service > SplitStreamedService;
   typedef WithSplitStreamingMethod_ListWords<WithStreamedUnaryMethod_InsertCount<Service > > StreamedService;
 };
+
+}  // namespace insertword
 
 
 #endif  // GRPC_insert_2eproto__INCLUDED

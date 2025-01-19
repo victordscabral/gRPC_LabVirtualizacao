@@ -23,6 +23,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
+namespace insertword {
 
 inline constexpr WordResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -78,6 +79,7 @@ struct EmptyDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EmptyDefaultTypeInternal _Empty_default_instance_;
+}  // namespace insertword
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_insert_2eproto = nullptr;
 static constexpr const ::_pb::ServiceDescriptor**
@@ -85,30 +87,30 @@ static constexpr const ::_pb::ServiceDescriptor**
 const ::uint32_t
     TableStruct_insert_2eproto::offsets[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
         protodesc_cold) = {
-        PROTOBUF_FIELD_OFFSET(::WordRequest, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::WordRequest, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordRequest, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordRequest, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::WordRequest, _impl_.word_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordRequest, _impl_.word_),
         0,
-        PROTOBUF_FIELD_OFFSET(::WordResponse, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::WordResponse, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordResponse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordResponse, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::WordResponse, _impl_.word_),
-        PROTOBUF_FIELD_OFFSET(::WordResponse, _impl_.sum_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordResponse, _impl_.word_),
+        PROTOBUF_FIELD_OFFSET(::insertword::WordResponse, _impl_.sum_),
         0,
         1,
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::Empty, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::insertword::Empty, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
@@ -119,28 +121,30 @@ const ::uint32_t
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, 9, -1, sizeof(::WordRequest)},
-        {10, 20, -1, sizeof(::WordResponse)},
-        {22, -1, -1, sizeof(::Empty)},
+        {0, 9, -1, sizeof(::insertword::WordRequest)},
+        {10, 20, -1, sizeof(::insertword::WordResponse)},
+        {22, -1, -1, sizeof(::insertword::Empty)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
-    &::_WordRequest_default_instance_._instance,
-    &::_WordResponse_default_instance_._instance,
-    &::_Empty_default_instance_._instance,
+    &::insertword::_WordRequest_default_instance_._instance,
+    &::insertword::_WordResponse_default_instance_._instance,
+    &::insertword::_Empty_default_instance_._instance,
 };
 const char descriptor_table_protodef_insert_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\014insert.proto\"\033\n\013WordRequest\022\014\n\004word\030\001 "
-    "\001(\t\")\n\014WordResponse\022\014\n\004word\030\001 \001(\t\022\013\n\003sum"
-    "\030\002 \001(\005\"\007\n\005Empty2a\n\nInsertWord\022,\n\tListWor"
-    "ds\022\014.WordRequest\032\r.WordResponse\"\0000\001\022%\n\013I"
-    "nsertCount\022\014.WordRequest\032\006.Empty\"\000"
+    "\n\014insert.proto\022\ninsertword\"\033\n\013WordReques"
+    "t\022\014\n\004word\030\001 \001(\t\")\n\014WordResponse\022\014\n\004word\030"
+    "\001 \001(\t\022\013\n\003sum\030\002 \001(\005\"\007\n\005Empty2\215\001\n\nInsertWo"
+    "rd\022B\n\tListWords\022\027.insertword.WordRequest"
+    "\032\030.insertword.WordResponse\"\0000\001\022;\n\013Insert"
+    "Count\022\027.insertword.WordRequest\032\021.insertw"
+    "ord.Empty\"\000"
 };
 static ::absl::once_flag descriptor_table_insert_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_insert_2eproto = {
     false,
     false,
-    194,
+    251,
     descriptor_table_protodef_insert_2eproto,
     "insert.proto",
     &descriptor_table_insert_2eproto_once,
@@ -153,6 +157,7 @@ PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_insert_2eproto
     file_level_enum_descriptors_insert_2eproto,
     file_level_service_descriptors_insert_2eproto,
 };
+namespace insertword {
 // ===================================================================
 
 class WordRequest::_Internal {
@@ -166,11 +171,11 @@ class WordRequest::_Internal {
 WordRequest::WordRequest(::google::protobuf::Arena* arena)
     : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:WordRequest)
+  // @@protoc_insertion_point(arena_constructor:insertword.WordRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE WordRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::WordRequest& from_msg)
+    const Impl_& from, const ::insertword::WordRequest& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         word_(arena, from.word_) {}
@@ -185,7 +190,7 @@ WordRequest::WordRequest(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
 
-  // @@protoc_insertion_point(copy_constructor:WordRequest)
+  // @@protoc_insertion_point(copy_constructor:insertword.WordRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE WordRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -197,7 +202,7 @@ inline void WordRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
 }
 WordRequest::~WordRequest() {
-  // @@protoc_insertion_point(destructor:WordRequest)
+  // @@protoc_insertion_point(destructor:insertword.WordRequest)
   _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
@@ -228,7 +233,7 @@ WordRequest::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 24, 2> WordRequest::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 35, 2> WordRequest::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(WordRequest, _impl_._has_bits_),
     0, // no _extensions_
@@ -243,7 +248,7 @@ const ::_pbi::TcParseTable<0, 1, 0, 24, 2> WordRequest::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::WordRequest>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::insertword::WordRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // optional string word = 1;
@@ -258,14 +263,14 @@ const ::_pbi::TcParseTable<0, 1, 0, 24, 2> WordRequest::_table_ = {
   }},
   // no aux_entries
   {{
-    "\13\4\0\0\0\0\0\0"
-    "WordRequest"
+    "\26\4\0\0\0\0\0\0"
+    "insertword.WordRequest"
     "word"
   }},
 };
 
 PROTOBUF_NOINLINE void WordRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:WordRequest)
+// @@protoc_insertion_point(message_clear_start:insertword.WordRequest)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -282,7 +287,7 @@ PROTOBUF_NOINLINE void WordRequest::Clear() {
 ::uint8_t* WordRequest::_InternalSerialize(
     ::uint8_t* target,
     ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:WordRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:insertword.WordRequest)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -291,7 +296,7 @@ PROTOBUF_NOINLINE void WordRequest::Clear() {
   if (cached_has_bits & 0x00000001u) {
     const std::string& _s = this->_internal_word();
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(_s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormat::SERIALIZE,
-                                "WordRequest.word");
+                                "insertword.WordRequest.word");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -300,12 +305,12 @@ PROTOBUF_NOINLINE void WordRequest::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:WordRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:insertword.WordRequest)
   return target;
 }
 
 ::size_t WordRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:WordRequest)
+// @@protoc_insertion_point(message_byte_size_start:insertword.WordRequest)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -326,7 +331,7 @@ PROTOBUF_NOINLINE void WordRequest::Clear() {
 void WordRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<WordRequest*>(&to_msg);
   auto& from = static_cast<const WordRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:WordRequest)
+  // @@protoc_insertion_point(class_specific_merge_from_start:insertword.WordRequest)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -340,7 +345,7 @@ void WordRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
 }
 
 void WordRequest::CopyFrom(const WordRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:WordRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:insertword.WordRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -372,11 +377,11 @@ class WordResponse::_Internal {
 WordResponse::WordResponse(::google::protobuf::Arena* arena)
     : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:WordResponse)
+  // @@protoc_insertion_point(arena_constructor:insertword.WordResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE WordResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::WordResponse& from_msg)
+    const Impl_& from, const ::insertword::WordResponse& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         word_(arena, from.word_) {}
@@ -392,7 +397,7 @@ WordResponse::WordResponse(
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   _impl_.sum_ = from._impl_.sum_;
 
-  // @@protoc_insertion_point(copy_constructor:WordResponse)
+  // @@protoc_insertion_point(copy_constructor:insertword.WordResponse)
 }
 inline PROTOBUF_NDEBUG_INLINE WordResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
@@ -405,7 +410,7 @@ inline void WordResponse::SharedCtor(::_pb::Arena* arena) {
   _impl_.sum_ = {};
 }
 WordResponse::~WordResponse() {
-  // @@protoc_insertion_point(destructor:WordResponse)
+  // @@protoc_insertion_point(destructor:insertword.WordResponse)
   _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
@@ -436,7 +441,7 @@ WordResponse::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 25, 2> WordResponse::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 36, 2> WordResponse::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(WordResponse, _impl_._has_bits_),
     0, // no _extensions_
@@ -451,7 +456,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 25, 2> WordResponse::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::WordResponse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::insertword::WordResponse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // optional int32 sum = 2;
@@ -472,14 +477,14 @@ const ::_pbi::TcParseTable<1, 2, 0, 25, 2> WordResponse::_table_ = {
   }},
   // no aux_entries
   {{
-    "\14\4\0\0\0\0\0\0"
-    "WordResponse"
+    "\27\4\0\0\0\0\0\0"
+    "insertword.WordResponse"
     "word"
   }},
 };
 
 PROTOBUF_NOINLINE void WordResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:WordResponse)
+// @@protoc_insertion_point(message_clear_start:insertword.WordResponse)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -497,7 +502,7 @@ PROTOBUF_NOINLINE void WordResponse::Clear() {
 ::uint8_t* WordResponse::_InternalSerialize(
     ::uint8_t* target,
     ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:WordResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:insertword.WordResponse)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -506,7 +511,7 @@ PROTOBUF_NOINLINE void WordResponse::Clear() {
   if (cached_has_bits & 0x00000001u) {
     const std::string& _s = this->_internal_word();
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(_s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormat::SERIALIZE,
-                                "WordResponse.word");
+                                "insertword.WordResponse.word");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
@@ -522,12 +527,12 @@ PROTOBUF_NOINLINE void WordResponse::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:WordResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:insertword.WordResponse)
   return target;
 }
 
 ::size_t WordResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:WordResponse)
+// @@protoc_insertion_point(message_byte_size_start:insertword.WordResponse)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -557,7 +562,7 @@ PROTOBUF_NOINLINE void WordResponse::Clear() {
 void WordResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<WordResponse*>(&to_msg);
   auto& from = static_cast<const WordResponse&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:WordResponse)
+  // @@protoc_insertion_point(class_specific_merge_from_start:insertword.WordResponse)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -576,7 +581,7 @@ void WordResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
 }
 
 void WordResponse::CopyFrom(const WordResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:WordResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:insertword.WordResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -604,7 +609,7 @@ class Empty::_Internal {
 
 Empty::Empty(::google::protobuf::Arena* arena)
     : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-  // @@protoc_insertion_point(arena_constructor:Empty)
+  // @@protoc_insertion_point(arena_constructor:insertword.Empty)
 }
 Empty::Empty(
     ::google::protobuf::Arena* arena,
@@ -615,7 +620,7 @@ Empty::Empty(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 
-  // @@protoc_insertion_point(copy_constructor:Empty)
+  // @@protoc_insertion_point(copy_constructor:insertword.Empty)
 }
 
 const ::google::protobuf::MessageLite::ClassData*
@@ -654,7 +659,7 @@ const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Empty::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::Empty>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::insertword::Empty>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
@@ -678,6 +683,7 @@ const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Empty::_table_ = {
   return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace insertword
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
