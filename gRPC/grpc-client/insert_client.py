@@ -27,19 +27,24 @@ def get_list_word(stub, request_word):
         )
     return response_list
 
-def run():
+def run(in_word):
      list_dict = []
-     request_word = input("Enter word: ")
+     request_word = in_word
      request_word = request_word.strip()
      with grpc.insecure_channel("192.168.200.20:50051") as channel:
         stub = insert_pb2_grpc.InsertWordStub(channel)
         if request_word.upper() == 'IMPRIMIR':
             print("-------------- ListWords --------------")
-            get_list_word(stub, request_word)
+            list_dict = get_list_word(stub, request_word)
+            
         else:
             print("-------------- AddWord --------------")
             add_word(stub, request_word)
+     return [{"word": r.word, "sum": r.sum} for r in list_dict]
 
-if __name__ == "__main__":
-    logging.basicConfig()
-    run()
+
+# if __name__ == "__main__":
+#     logging.basicConfig()
+#     run()
+
+# ip: 192.168.200.20

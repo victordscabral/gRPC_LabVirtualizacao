@@ -76,7 +76,8 @@ class InsertWordImpl final : public InsertWord::Service {
                       const insertword::WordRequest* wordRequest,
                       ServerWriter<WordResponse>* writer) override {
         const std::string expected_string = "IMPRIMIR";
-        if(expected_string == wordRequest->word()){
+        const std::string expected_string_lower = "imprimir";
+        if(expected_string == wordRequest->word() || expected_string_lower == wordRequest->word()){
             std::cout << "Palavra chave para impressão recebida " << wordRequest->word() << std::endl;
             std::lock_guard<std::mutex> lock(mtx);
 
