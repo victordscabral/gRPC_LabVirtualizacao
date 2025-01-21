@@ -162,19 +162,19 @@ sudo apt install openssh-server
 
 2. Instale as dependências do projeto:
     ```bash
-    npm run dev
+    npm install
     ```
 
 ### 5.6.2. Executando o Frontend
 
 1. Inicie o servidor de desenvolvimento:
     ```bash
-    npm start
+    npm run dev
     ```
 
 2. Abra o navegador e acesse:
     ```
-    http://localhost:3000
+    http://localhost:5173/
     ```
 
 ### 5.6.2. Executando o Backend
