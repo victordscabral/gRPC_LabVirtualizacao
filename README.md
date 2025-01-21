@@ -92,7 +92,7 @@ popd
 #### 5.2.2. Detalhes de intalação em Python para o cliente
 Dentro do diretório gRPC/grpc-client crie uma ambiente virtual python e o ative:
 ```bash
-python -m venv
+python -m venv venv
 source venv/bin/activate
 ```
 
@@ -176,6 +176,36 @@ sudo apt install openssh-server
     ```
     http://localhost:3000
     ```
+
+### 5.6.2. Executando o Backend
+
+1. Crie uma venv e ative-a:
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+2. Atualize o pip:
+```bash
+python -m pip install --upgrade pip
+```
+
+3. Instale o gRPC e o gRPC tools:
+```bash
+python -m pip install grpcio
+python -m pip install grpcio-tools
+```
+
+4. Instale o gRPC e o gRPC tools:
+```bash
+python -m pip install grpcio
+python -m pip install grpcio-tools
+```
+
+5. Instale o flask:
+```bash
+pip install flask flask-cors 
+```
 
 ### 5.6.3. Utilização
 
