@@ -179,7 +179,7 @@ sudo apt install openssh-server
 
 ### 5.6.2. Executando o Backend
 
-1. Crie uma venv e ative-a:
+1. Na pasta backend, crie uma venv e ative-a:
 ```bash
 python -m venv venv
 source venv/bin/activate
