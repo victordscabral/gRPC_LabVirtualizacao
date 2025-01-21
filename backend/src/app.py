@@ -9,7 +9,7 @@ sys.path.append('../../gRPC/grpc-client')
 from insert_client import run
 
 app = Flask(__name__)
-CORS(app)  # Permitir requisições cross-origin, se necessário
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})  # Permitir requisições cross-origin, se necessário
 
 @app.route('/process', methods=['POST'])
 def process():

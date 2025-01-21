@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import './App.css';
+
+import React, { useState } from 'react';
 
 function App() {
   const [word, setWord] = useState('');
@@ -12,13 +13,14 @@ function App() {
     }
 
     // Simulação de uma chamada gRPC
-    const response = await fetch('http://localhost:5000/consult', {
+    const response = await fetch('http://localhost:8080/process', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ word })
     });
+    
 
     const result = await response.json();
     setResults([...results, result]);
@@ -52,7 +54,7 @@ function App() {
             {results.map((result, index) => (
               <tr key={index}>
                 <td>{result.word}</td>
-                <td>{result.count}</td>
+                <td>{result.sum}</td> {/* Atualizado para usar "sum" */}
               </tr>
             ))}
           </tbody>
