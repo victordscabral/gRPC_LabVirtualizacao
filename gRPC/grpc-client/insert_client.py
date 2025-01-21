@@ -31,7 +31,7 @@ def run():
      list_dict = []
      request_word = input("Enter word: ")
      request_word = request_word.strip()
-     with grpc.insecure_channel("localhost:50051") as channel:
+     with grpc.insecure_channel("192.168.200.20:50051") as channel:
         stub = insert_pb2_grpc.InsertWordStub(channel)
         if request_word.upper() == 'IMPRIMIR':
             print("-------------- ListWords --------------")
