@@ -11,8 +11,15 @@
 - Philipe de Sousa Barros: 170154319
 - Victor de Souza Cabral: 190038900
 
+</br>
+</br>
+
 ## 2. Objetivo
-Construir uma aplicação distribuída com **gRPC** e explorar virtualização para suportar a aplicação. A aplicação será um microserviço de dicionário de palavras, onde as palavras são armazenadas e contadas.
+Construir uma aplicação distribuída com **gRPC** e explorar virtualização para suportar a aplicação. Server em **gRPC c++**, backend/client em **gRPC python**, frontend em **React**, **typescript** e **Vite**.
+
+A aplicação será um microserviço de dicionário de palavras, onde as palavras são armazenadas e contadas. 
+
+Adicione a palavra em ```Adicionar Palavra``` e depois lista as palavras e ocorrências escevenco ```imprimir``` e depois clicando em ```Adicionar Palavra``` novamente. Isso no frontend da aplicação.
 
 ## 3. Tecnologias
 
@@ -22,8 +29,9 @@ Construir uma aplicação distribuída com **gRPC** e explorar virtualização p
 ### 3.2. Virtualização
 O trabalho envolve a configuração de **máquinas virtuais** utilizando **QEMU**, **Libvirt**, **Virt-manager** e **virsh** para suportar a infraestrutura distribuída.
 
-### 3.3. OpenSSH
-**OpenSSH** será utilizado para gerenciar as máquinas virtuais remotamente e de forma segura.
+</br>
+</br>
+</br>
 
 ## 4. Requisitos
 
@@ -34,11 +42,14 @@ Para rodar este projeto, é necessário que as seguintes ferramentas estejam ins
 - **QEMU/KVM**: Para virtualização de máquinas.
 - **Libvirt**: Para gerenciamento das VMs.
 - **Virt-manager**: Para interface gráfica de gerenciamento de VMs.
-- **OpenSSH**: Para conexões seguras entre máquinas virtuais.
 
-### 4.2. Capacidades da Máquina
-- **20 GB de RAM** ou mais para as VMs.
-- **512 GB de disco rígido** para armazenar as VMs e dados do projeto.
+### 4.2. Capacidades das VMs
+- **vm01:** 16GB de disco, 2GB de RAM e 2 CPUs.
+- **vm02:** 30GB de disco, 2GB de RAM e 2 CPUs.
+
+</br>
+</br>
+</br>
 
 ## 5. Passo a Passo para Implementação
 
@@ -61,7 +72,15 @@ Lembre-se de executar o servidor antes do cliente.
 #### 5.2.1. Detalhes de intalação em C++ para o servidor
 Tenha certeza de exportar uma váriavel com o caminho para pasta local de instalação do gRPC
 ```bash
-export MY_INSTALL_DIR=path/to/.local
+export MY_INSTALL_DIR=~/gRPC/.local
+```
+
+```bash
+export PATH="$MY_INSTALL_DIR/bin:$PATH"
+```
+
+```bash
+mkdir -p $MY_INSTALL_DIR
 ```
 
 Instale o cmake
@@ -89,26 +108,32 @@ make install
 popd
 ```
 
-#### 5.2.2. Detalhes de intalação em Python para o cliente
+#### 5.2.2. Executando o cliente
 Dentro do diretório gRPC/grpc-client crie uma ambiente virtual python e o ative:
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
-Atualize o pip:
+Instale as dependências:
 ```bash
 python -m pip install --upgrade pip
+python -m pip install grpcio grpcio-tools
 ```
 
-Instale o gRPC e o gRPC tools:
+No diretório gRPC/grpc-client e com o ambiente virtual ativo:
 ```bash
-python -m pip install grpcio
-python -m pip install grpcio-tools
+python insert_client.py
 ```
 
 #### 5.2.3. Executando Servidor C++
 No diretório gRPC/grpc-server prepare o ambiente de build com os seguintes comandos:
+
+Primeiro remova se já tiver criado, para atualizar o Cache:
+```bash
+rm -r cmake
+```
+
 ```bash
 mkdir -p cmake/build
 cd cmake/build
@@ -126,12 +151,6 @@ Inicie o servidor com o seguinte comando:
 ./insert_server
 ```
 
-#### 5.2.3. Executando Cliente Python
-No diretório gRPC/grpc-client e com o ambiente virtual ativo:
-```bash
-python insert_client.py
-```
-
 
 ### 5.3. Configuração da Virtualização
 1. Instale o QEMU, libvirt e virt-manager:
@@ -142,14 +161,8 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils vir
 
 ### 5.4. Configuração de Rede
 Configure duas redes:
-- **LAN #1**: Rede física conectando os hosts.
+- **LAN #1**: Rede conectando os hosts.
 - **LAN #2**: Rede virtual conectando as VMs.
-
-### 5.5. OpenSSH
-Instale e configure o OpenSSH:
-```bash
-sudo apt install openssh-server
-```
 
 ## 5.6. Executando o Frontend
 
@@ -181,7 +194,7 @@ sudo apt install openssh-server
 
 1. Na pasta backend, crie uma venv e ative-a:
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
@@ -192,26 +205,17 @@ python -m pip install --upgrade pip
 
 3. Instale o gRPC e o gRPC tools:
 ```bash
-python -m pip install grpcio
-python -m pip install grpcio-tools
+python -m pip install grpcio grpcio-tools
 ```
 
-4. Instale o gRPC e o gRPC tools:
-```bash
-python -m pip install grpcio
-python -m pip install grpcio-tools
-```
-
-5. Instale o flask:
+4. Instale o flask:
 ```bash
 pip install flask flask-cors 
 ```
 
-### 5.6.3. Utilização
-
-1. Digite a palavra que deseja consultar no campo de entrada.
-2. Clique no botão "Consultar Palavra".
-3. A tabela será atualizada com a palavra consultada e seu número de ocorrências.
+</br>
+</br>
+</br>
 
 ## 6. Estrutura do Projeto
 - **server.c**: Código do servidor gRPC que mantém o dicionário de palavras.
@@ -230,4 +234,3 @@ A entrega consiste em:
 - [QEMU](https://www.qemu.org/)
 - [Libvirt](https://libvirt.org/)
 - [Virt-Manager](https://virt-manager.org/)
-- [OpenSSH](https://www.openssh.com/)
